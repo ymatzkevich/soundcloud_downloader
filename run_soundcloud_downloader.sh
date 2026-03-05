@@ -20,9 +20,9 @@ set +a
 docker run --rm \
   --name scdl \
   --env-file .env \
-  -v "$(pwd)/tracks:/soundcloud_downloader/tracks" \
-  -v "$(pwd)/logs:/soundcloud_downloader/logs" \
-  -v "$(pwd)/archive:/soundcloud_downloader/archive" \
+  -v "$PROJECT_DIR/tracks:/soundcloud_downloader/tracks" \
+  -v "$PROJECT_DIR/logs:/soundcloud_downloader/logs" \
+  -v "$PROJECT_DIR/archive:/soundcloud_downloader/archive" \
   scdl >> "$LOG_FILE" 2>&1
 
 # move stuff elsewhere if it's specified in .env
