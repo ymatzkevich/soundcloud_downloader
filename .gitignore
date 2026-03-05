@@ -1,4 +1,4 @@
 .env
-./archive/*
-./tracks/*
-./logs/*
+archive/*
+tracks/*
+logs/*
