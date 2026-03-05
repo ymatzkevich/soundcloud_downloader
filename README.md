@@ -24,7 +24,7 @@ EXT_DIR="/path/to/dir"
 In the crontab or the task scheduler of the NAS we configure a task that will run the `run_soundcloud_downloader.sh` script every fixed amount of time (depending on user activity on Soundcloud) to automatically download and move the tracks in some specified directory.
 For example, a cron job running at 7:00 every day would look like:
 ```
-0 7 * * * ./path/to/soundcloud_downloader/run_soundcloud_downloader.sh 
+0 7 * * * /path/to/soundcloud_downloader/run_soundcloud_downloader.sh 
 ```
 The `archive.txt` file is used to track what tracks were already downloaded. 
 In order to have a tabula rasa you can simply create an empty text file and the new tracks will be recorded there.
