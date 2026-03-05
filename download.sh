@@ -2,10 +2,7 @@
 set -e
 
 TRACKS_DIR="tracks"
-LOGS_DIR="logs"
 ARCHIVE_DIR="archive"
-
-mkdir -p "$TRACKS_DIR" "$LOGS_DIR" "$ARCHIVE_DIR"
 
 ARCHIVE_FILE="archive/archive.txt"
 
