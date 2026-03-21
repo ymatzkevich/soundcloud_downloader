@@ -6,7 +6,7 @@ This is a setup to automatically download your tracks from Soundcloud with all t
 ## Build a Docker image using the Dockerfile
 The general idea here is to have a Docker container being created and running a script and then stopping + removing itself when done with the script. To build the image required for the container:
 ```bash
-docker build -t scdl .
+chmod +x setup.sh && ./setup.sh
 ```
 The name given to the image is `scdl`. It is based on Alpine Linux and has additional packages like ffmpeg, pipx and scdl installed.
 
