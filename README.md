@@ -36,4 +36,42 @@ The task will log all the work done in `logs/download.log`.
 * mv overwrite to the other folder
 * pre built image 
 * avoid folders mess
-* log file max size 
+* log file max size
+
+## ADR: why use `scdl` instead of `yt-dlp` library ?
+
+### context
+wanted:
+- deterministic audio output
+- embedded cover art
+- reliable metadata
+- all tracks in one directory
+- simple automation without cleanup
+
+`yt-dlp` looked attractive because it is modern, multi-site, and preserves original uploads
+
+### decision
+use `scdl` as backend for soundcloud downloads.
+
+### why not `yt-dlp`
+- soundcloud metadata/artwork sometimes missing => tagging failed
+- mixed source formats produced inconsistent output
+- aac leftovers and failed conversions required manual cleanup
+- silent failures with incomplete metadata
+- playlist/likes handling more cumbersome
+- preserving original/lossless uploads was not a priority for this project
+- too strict/general-purpose for unreliable soundcloud data
+
+### why `scdl`
+- uses soundcloud api directly
+- always produces predictable playable mp3 files
+- metadata and artwork handling more reliable
+- simpler playlist/likes support
+- deterministic output easier to automate and organize
+- no messy leftovers from failed conversions
+
+### consequence
+original/lossless audio may be discarded due to mp3 re-encoding
+
+tradeoff accepted because project priority is consistency and automation:
+clean soundcloud mp3 archives with tags and cover art
